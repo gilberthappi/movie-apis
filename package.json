@@ -25,7 +25,8 @@
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.2",
     "@babel/node": "^7.22.19",
-    "@babel/preset-env": "^7.23.2"
+    "@babel/preset-env": "^7.23.2",
+    "nodemon": "^3.0.1"
   },
   "scripts": {
     "start": "nodemon --exec babel-node server.js",
