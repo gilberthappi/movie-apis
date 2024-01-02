@@ -154,7 +154,6 @@ export const login = async (req, res) => {
         email: user.email,
         name: user.name,
         role: user.role,
-        // Add other relevant fields based on userType
       },
     });
   } catch (error) {
