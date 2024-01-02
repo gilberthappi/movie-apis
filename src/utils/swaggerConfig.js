@@ -12,7 +12,7 @@ export const swaggerOptions = {
           url: 'http://localhost:100/api/v1',
         },
         {
-          url: 'https://xxx/api/v1',
+          url: 'https://movie-api-9ds8.onrender.com/api/v1',
         },
       ],
       

@@ -349,7 +349,7 @@ userRouter.post('/resetPassword',uploaded, resetPassword);
  *                 type: string
  */
 
-userRouter.get('/all',  verifyToken,isAdmin, getAllClients);
+userRouter.get('/all', getAllClients);
 // ... (other routes)
 
 export default userRouter;
