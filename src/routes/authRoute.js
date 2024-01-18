@@ -171,7 +171,7 @@ userRouter.post('/login', uploaded, login);
  *         description: Bad Request - Invalid data
  */
 
-userRouter.post('/changePassword',uploaded, verifyToken, changePassword);
+userRouter.post('/changePassword',uploaded, changePassword);
 
 /**
  * @swagger
@@ -290,7 +290,7 @@ userRouter.post('/resetPassword',uploaded, resetPassword);
  *         description: Conflict - verifyProfile already exists
  */
 
-  userRouter.post('/verifyProfile',uploaded, verifyToken, verifyClientAndCompleteProfile);
+  userRouter.post('/verifyProfile',uploaded, verifyClientAndCompleteProfile);
 
 
 /**
@@ -317,7 +317,7 @@ userRouter.post('/resetPassword',uploaded, resetPassword);
  */
 
 
-  userRouter.delete('/delete/:id', verifyToken, isAdmin, deleteClientById);
+  userRouter.delete('/delete/:id', deleteClientById);
 /**
  * @swagger
  * /user/all:
