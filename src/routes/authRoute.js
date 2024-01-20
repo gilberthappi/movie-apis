@@ -353,6 +353,42 @@ userRouter.post('/resetPassword',uploaded, resetPassword);
 userRouter.get('/all', getAllClients);
 // ... (other routes)
 
-userRouter.put('/edit',updateUser);
+
+ /**
+ * @swagger
+ * /user/edit/{id}:
+ *   put:
+ *     summary: Update user information
+ *     tags: [Authentications]
+ *     description: Edit user details
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The User ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User is edited successfully
+ *       400:
+ *         description: Bad Request - Invalid data
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Internal Server Error
+ */
+
+
+userRouter.put('/edit/:id',updateUser);
 
 export default userRouter;

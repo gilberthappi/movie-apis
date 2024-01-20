@@ -420,24 +420,39 @@ export const deleteClientById = async (req, res) => {
 
 //update user
  
+
+
 export const updateUser = async (req, res) => {
   try {
-    const { userId } = req;
-    const user = await USER.findById(userId);
-    const userType = user.userType;
-    if(!user){
-      console.log("user do not exist");
+    const { id } = req.params;
+    const user = await USER.findById(id);
+    console.log('ID:', id);
+    console.log('Current user name:', user.name);
+    if (!user) {
+      return res.status(404).json({
+        message: 'User not found',
+      });
     }
-    const { name} = req.body;
+
+    const { name } = req.body;
+
+    // Update the user's name
     user.name = name || user.name;
+
+    console.log('Updated user name:', user.name);
+    // Save the changes to the user
     await user.save();
+    console.log('User saved successfully');
     return res.status(200).json({
-      message: 'User is verified',
+      message: 'User is edited',
+      USER: {
+        name: user.name,
+      },
     });
   } catch (error) {
-    console.error('Error in verifyClientAndCompleteProfile:', error);
+    console.error('Error in edit:', error);
     res.status(500).json({
       message: 'Internal Server Error',
     });
   }
-}
+};
