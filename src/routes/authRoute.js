@@ -389,6 +389,6 @@ userRouter.get('/all', getAllClients);
  */
 
 
-userRouter.put('/edit/:id',updateUser);
+userRouter.put('/edit/:id',uploaded,updateUser);
 
 export default userRouter;
