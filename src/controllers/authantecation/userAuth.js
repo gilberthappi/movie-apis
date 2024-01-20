@@ -416,3 +416,28 @@ export const deleteClientById = async (req, res) => {
     });
   }
 };
+
+
+//update user
+ 
+export const updateUser = async (req, res) => {
+  try {
+    const { userId } = req;
+    const user = await USER.findById(userId);
+    const userType = user.userType;
+    if(!user){
+      console.log("user do not exist");
+    }
+    const { name} = req.body;
+    user.name = name || user.name;
+    await user.save();
+    return res.status(200).json({
+      message: 'User is verified',
+    });
+  } catch (error) {
+    console.error('Error in verifyClientAndCompleteProfile:', error);
+    res.status(500).json({
+      message: 'Internal Server Error',
+    });
+  }
+}

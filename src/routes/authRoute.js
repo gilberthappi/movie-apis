@@ -8,6 +8,7 @@ import {
   deleteClientById,
   verifyClientAndCompleteProfile,
   getAllClients,
+  updateUser,
 } from '../controllers/authantecation/userAuth.js';
 import { verifyToken, uploaded, isAdmin } from '../middleware/index.js';
 
@@ -351,5 +352,7 @@ userRouter.post('/resetPassword',uploaded, resetPassword);
 
 userRouter.get('/all', getAllClients);
 // ... (other routes)
+
+userRouter.put('/edit',updateUser);
 
 export default userRouter;
