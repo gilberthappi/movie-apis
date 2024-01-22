@@ -417,6 +417,6 @@ userRouter.put('/edit/:id',uploaded,updateUser);
  */
 
 
-userRouter.get('/:id', getById);
+userRouter.get('/:id',uploaded, getById);
 
 export default userRouter;
