@@ -9,6 +9,7 @@ import {
   verifyClientAndCompleteProfile,
   getAllClients,
   updateUser,
+  getById,
 } from '../controllers/authantecation/userAuth.js';
 import { verifyToken, uploaded, isAdmin } from '../middleware/index.js';
 
@@ -390,5 +391,32 @@ userRouter.get('/all', getAllClients);
 
 
 userRouter.put('/edit/:id',uploaded,updateUser);
+
+
+/**
+ * @swagger
+ * /user/{id}:
+ *   get:
+ *     summary: Get a Client by ID
+ *     tags: [Authentications]
+ *     description: Get a Client by ID
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The Client ID
+ *     responses:
+ *       200:
+ *         description: Client found successfully
+ *       404:
+ *         description: Client not found
+ */
+
+
+userRouter.get('/:id', getById);
 
 export default userRouter;
