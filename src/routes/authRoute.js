@@ -9,7 +9,7 @@ import {
   verifyClientAndCompleteProfile,
   getAllClients,
   updateUser,
-  getById,
+  getClientById,
 } from '../controllers/authantecation/userAuth.js';
 import { verifyToken, uploaded, isAdmin } from '../middleware/index.js';
 
@@ -417,6 +417,6 @@ userRouter.put('/edit/:id',uploaded,updateUser);
  */
 
 
-userRouter.get('/:id',uploaded, getById);
+userRouter.get('/:id',uploaded, getClientById);
 
 export default userRouter;
